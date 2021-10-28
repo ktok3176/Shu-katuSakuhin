@@ -2,7 +2,7 @@
  * @brief シンプルなモデル表示用のシェーダー
  */
 
-// モデル用の定数バッファー
+ // モデル用の定数バッファー
 cbuffer ModelCb : register(b0)
 {
     float4x4 mWorld;
@@ -51,5 +51,5 @@ SPSIn VSMain(SVSIn vsIn, uniform bool hasSkin)
 float4 PSMain(SPSIn psIn) : SV_Target0
 {
     // step-4 テクスチャを貼り付ける
-    return float4(1.0f, 0.0f, 0.0f, 1.0f);
+    return g_texture.Sample(g_sampler,psIn.uv);
 }

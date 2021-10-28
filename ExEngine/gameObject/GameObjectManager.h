@@ -5,9 +5,15 @@
 #pragma once
 
 #include "gameObject/IGameObject.h"
+#include "RenderTarget.h"
+#include "GraphicsEngine.h"
+#include "Sprite.h"
 #include <functional>
 #include <vector>
-
+#include <Model.h>
+#include <HID/GamePad.h>
+#include <MiniEngine.h>
+#include "../../GameTemplate/Game/Gaussianblur.h"
 
 /// <summary>
 /// GameObjectManagerクラス
@@ -126,6 +132,36 @@ public:
 	}
 	
 private:
+	//ここからシャドウ関係
+	float clearColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	RenderTarget shadowMap; 
+	Camera lightCamera;
+	ModelInitData teapotShadowModelInitData;
+	Model teapotShadowModel;
+	ModelInitData bgModelInitData;
+	Model bgModel;
+	Quaternion qAddRot;
+	Vector3 teaShadow = { 0.0f, 50.0f, 0.0f };
+	Vector3 cameraSetPos = { 0.0f, 500.0f, 0.0f };
+	Vector3 cameraSetTarget = { 0.0f, 0.0f, 0.0f };
+	Vector3 cameraSetUp = { 1.0f, 0.0f, 0.0f };
+
+	void InitShadow();
+	//ここまでシャドウ関係
+	
+	//ここからブルーム関係
+	RenderTarget mainRenderTarget;
+	RenderTarget luminnceRenderTarget;
+	SpriteInitData finalSpriteInitData;
+	SpriteInitData spriteInitData;
+	Sprite luminanceSprite;
+	Gaussianblur gaussianBlur[4];
+	Sprite copyToFrameBufferSprite;
+	Sprite finalSprite;
+	SpriteInitData luminanceSpriteInitData;
+	void InitRenderTargets();
+	void InitSprites();
+	//ここまでブルーム関係
 	enum { GAME_OBJECT_PRIO_MAX = 255 };		//!<ゲームオブジェクトの優先度の最大値。
 	typedef std::list<IGameObject*>	 GameObjectList;
 	std::array<GameObjectList, GAME_OBJECT_PRIO_MAX>	m_gameObjectListArray;							//!<ゲームオブジェクトの優先度付きリスト。

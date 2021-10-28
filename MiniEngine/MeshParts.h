@@ -12,6 +12,7 @@ class Skeleton;
 class Material;
 class IShaderResource;
 
+const int MAX_MODEL_EXPAND_SRV = 6;	//Šg’£SRV‚ÌÅ‘å”B
 
 /// <summary>
 /// ƒƒbƒVƒ…

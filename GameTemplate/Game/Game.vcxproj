@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -276,6 +276,7 @@
     <ClCompile Include="..\..\MiniEngine\raytracing\RaytracingShaderTable.cpp" />
     <ClCompile Include="..\..\MiniEngine\raytracing\RaytracingWorld.cpp" />
     <ClCompile Include="..\..\MiniEngine\raytracing\TLASBuffer.cpp" />
+    <ClCompile Include="..\..\MiniEngine\RenderTarget.cpp" />
     <ClCompile Include="..\..\MiniEngine\RootSignature.cpp" />
     <ClCompile Include="..\..\MiniEngine\RWStructuredBuffer.cpp" />
     <ClCompile Include="..\..\MiniEngine\Shader.cpp" />
@@ -288,7 +289,12 @@
     <ClCompile Include="..\..\MiniEngine\tkFile\TkmFile.cpp" />
     <ClCompile Include="..\..\MiniEngine\tkFile\TksFile.cpp" />
     <ClCompile Include="..\..\MiniEngine\VertexBuffer.cpp" />
+    <ClCompile Include="Bloom.cpp" />
+    <ClCompile Include="DepthShadow.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Gaussianblur.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="model_render.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -347,6 +353,7 @@
     <ClInclude Include="..\..\MiniEngine\raytracing\TLASBuffer.h" />
     <ClInclude Include="..\..\MiniEngine\RenderContext.h" />
     <ClInclude Include="..\..\MiniEngine\RenderContext_inline.h" />
+    <ClInclude Include="..\..\MiniEngine\RenderTarget.h" />
     <ClInclude Include="..\..\MiniEngine\RootSignature.h" />
     <ClInclude Include="..\..\MiniEngine\RWStructuredBuffer.h" />
     <ClInclude Include="..\..\MiniEngine\Shader.h" />
@@ -359,6 +366,12 @@
     <ClInclude Include="..\..\MiniEngine\tkFile\TkmFile.h" />
     <ClInclude Include="..\..\MiniEngine\tkFile\TksFile.h" />
     <ClInclude Include="..\..\MiniEngine\VertexBuffer.h" />
+    <ClInclude Include="Bloom.h" />
+    <ClInclude Include="constant.h" />
+    <ClInclude Include="DepthShadow.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Gaussianblur.h" />
+    <ClInclude Include="model_render.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
   </ItemGroup>

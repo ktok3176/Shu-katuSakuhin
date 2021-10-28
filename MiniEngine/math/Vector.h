@@ -64,9 +64,9 @@ public:
 /// <summary>
 /// 3次元ベクトル。
 /// </summary>
-class Vector3{
+class Vector3 {
 public:
-	union{
+	union {
 		DirectX::XMFLOAT3 vec;
 		float v[3];
 		struct { float x, y, z; };
@@ -165,7 +165,7 @@ public:
 	{
 		Set(_v.x, _v.y, _v.z);
 	}
-		
+
 	/// <summary>
 	/// ベクトルの加算。
 	/// </summary>
@@ -173,7 +173,7 @@ public:
 	/// this += _v;
 	/// </remarks>
 	/// <param name="_v">加算されるベクトル。</param>
-	void Add( const Vector3& _v) 
+	void Add(const Vector3& _v)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat3(&vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat3(&_v.vec);
@@ -186,7 +186,7 @@ public:
 	/// <remarks>
 	/// this = v0 + v1;
 	/// </remarks>
-	void Add( const Vector3& v0, const Vector3& v1 )
+	void Add(const Vector3& v0, const Vector3& v1)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat3(&v0.vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat3(&v1.vec);
@@ -199,7 +199,7 @@ public:
 	/// <remarks>
 	/// this -= _v;
 	/// </remarks>
-	void Subtract( const Vector3& _v )
+	void Subtract(const Vector3& _v)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat3(&vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat3(&_v.vec);
@@ -212,7 +212,7 @@ public:
 	/// <remarks>
 	/// this = v0 - v1;
 	/// </remarks>
-	void Subtract( const Vector3& v0, const Vector3& v1 )
+	void Subtract(const Vector3& v0, const Vector3& v1)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat3(&v0.vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat3(&v1.vec);
@@ -227,7 +227,7 @@ public:
 	/// float d = this->x * _v.x + this->y * _v.y + this->z * _v.z;
 	/// return d;
 	/// </remarks>
-	float Dot( const Vector3& _v ) const
+	float Dot(const Vector3& _v) const
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat3(&vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat3(&_v.vec);
@@ -346,7 +346,7 @@ public:
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat3(&vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat3(&v.vec);
-		DirectX::XMStoreFloat3(&vec,  DirectX::XMVectorMax(xmv0, xmv1));
+		DirectX::XMStoreFloat3(&vec, DirectX::XMVectorMax(xmv0, xmv1));
 	}
 
 	/// <summary>
@@ -387,7 +387,7 @@ public:
 	/// Vector3 v = {20.0f, 30.0f, 40.0f};
 	///	v *= 10;
 	/// </remarks>
-	const Vector3& operator*=(float s) 
+	const Vector3& operator*=(float s)
 	{
 		Scale(s);
 		return *this;
@@ -423,9 +423,9 @@ public:
 /// <summary>
 /// 4次元ベクトルクラス。
 /// </summary>
-class Vector4{
+class Vector4 {
 public:
-	union{
+	union {
 		DirectX::XMFLOAT4 vec;
 		struct { float x, y, z, w; };
 		struct { float r, g, b, a; };
@@ -466,7 +466,7 @@ public:
 		dst.z = z;
 		dst.w = w;
 	}
-	
+
 	/// <summary>
 	/// 代入演算子。
 	/// </summary>
@@ -545,7 +545,7 @@ public:
 	/// <remarks>
 	/// this += _v;
 	/// </remarks>
-	void Add( const Vector4& _v )
+	void Add(const Vector4& _v)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat4(&vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat4(&_v.vec);
@@ -558,7 +558,7 @@ public:
 	/// <remarks>
 	/// this = v0 + v1;
 	/// </remarks>
-	void Add( const Vector4& v0, const Vector4& v1 )
+	void Add(const Vector4& v0, const Vector4& v1)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat4(&v0.vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat4(&v1.vec);
@@ -571,7 +571,7 @@ public:
 	/// <remarks>
 	/// this -= _v;
 	/// </remarks>
-	void Subtract( const Vector4& _v )
+	void Subtract(const Vector4& _v)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat4(&vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat4(&_v.vec);
@@ -584,7 +584,7 @@ public:
 	/// <remarks>
 	/// this = v0 - v1;
 	/// </remarks>
-	void Subtract( const Vector4& v0, const Vector4& v1 )
+	void Subtract(const Vector4& v0, const Vector4& v1)
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat4(&v0.vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat4(&v1.vec);
@@ -599,7 +599,7 @@ public:
 	/// float d = this->x * _v.x + this->y * _v.y + this->z * _v.z + this->w * _v.w;
 	/// return d;
 	/// </remarks>
-	float Dot( const Vector4& _v ) const
+	float Dot(const Vector4& _v) const
 	{
 		DirectX::XMVECTOR xmv0 = DirectX::XMLoadFloat4(&vec);
 		DirectX::XMVECTOR xmv1 = DirectX::XMLoadFloat4(&_v.vec);
@@ -660,10 +660,10 @@ const Vector4 g_vec4Yellow = { 1.0f, 1.0f, 0.0f, 1.0f };
 /// <summary>
 /// クォータニオンクラス。
 /// </summary>
-class Quaternion : public Vector4{
+class Quaternion : public Vector4 {
 public:
 	static const Quaternion Identity;		//!<単位クォータニオン。
-	Quaternion() 
+	Quaternion()
 	{
 		x = y = z = 0.0f;
 		w = 1.0f;
@@ -728,14 +728,14 @@ public:
 		SetRotationDeg(g_vec3AxisZ, angle);
 	}
 
-	
+
 
 	/// <summary>
 	/// 任意の軸周りの回転クォータニオンを作成。
 	/// </summary>
 	/// <param name="axis">回転軸</param>
 	/// <param name="angle">回転角度。単位ラジアン。</param>
-	void SetRotation( const Vector3& axis, float angle )
+	void SetRotation(const Vector3& axis, float angle)
 	{
 		float s;
 		float halfAngle = angle * 0.5f;
@@ -770,7 +770,7 @@ public:
 	/// </summary>
 	/// <param name="from">回転前のベクトル</param>
 	/// <param name="to">回転後のベクトル</param>
-	void SetRotation( Vector3 from,  Vector3 to);
+	void SetRotation(Vector3 from, Vector3 to);
 	/// <summary>
 	/// 球面線形補完
 	/// </summary>
@@ -857,7 +857,7 @@ public:
 		DirectX::XMStoreFloat3(&_v.vec, xmv);
 	}
 };
-	
+
 //整数型のベクトルクラス。
 __declspec(align(16)) class Vector4i {
 public:

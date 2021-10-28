@@ -1,7 +1,7 @@
 #pragma once
 
 
-class Texture  : public IShaderResource{
+class Texture : public IShaderResource {
 public:
 	/// <summary>
 	/// コンストラクタ。
@@ -17,7 +17,7 @@ public:
 	/// </summary>
 	/// <param name="filePath">ロードするテクスチャのファイルパス。</param>
 	explicit Texture(const wchar_t* filePath);
-	
+
 	/// <summary>
 	/// DDSファイルからテクスチャを初期化する。
 	/// </summary>
@@ -38,7 +38,7 @@ public:
 	/// SRVに登録。
 	/// </summary>
 	/// <param name="descriptorHandle"></param>
-	void RegistShaderResourceView(D3D12_CPU_DESCRIPTOR_HANDLE descriptorHandle, int bufferNo) ;
+	void RegistShaderResourceView(D3D12_CPU_DESCRIPTOR_HANDLE descriptorHandle, int bufferNo);
 	/// <summary>
 	/// テクスチャが有効か判定。
 	/// </summary>
@@ -50,6 +50,30 @@ public:
 	ID3D12Resource* Get()
 	{
 		return m_texture;
+	}
+	/// <summary>
+	/// テクスチャの幅を取得。
+	/// </summary>
+	/// <returns></returns>
+	int GetWidth() const
+	{
+		return static_cast<int>(m_textureDesc.Width);
+	}
+	/// <summary>
+	/// テクスチャの高さを取得。
+	/// </summary>
+	/// <returns></returns>
+	int GetHeight() const
+	{
+		return static_cast<int>(m_textureDesc.Height);
+	}
+	/// <summary>
+	/// テクスチャのフォーマットを取得。
+	/// </summary>
+	/// <returns></returns>
+	DXGI_FORMAT GetFormat() const
+	{
+		return m_textureDesc.Format;
 	}
 private:
 	/// <summary>
@@ -64,9 +88,9 @@ private:
 	/// <param name="size">テクスチャのサイズ。</param>
 	/// <param name="ge12">Dx12版のグラフィックスエンジン</param>
 	/// <param name="device">D3Dデバイス</param>
-	void LoadTextureFromMemory(const char* memory, unsigned int size );
-		
+	void LoadTextureFromMemory(const char* memory, unsigned int size);
+
 private:
-	ID3D12Resource*	m_texture = nullptr;	//テクスチャ。
+	ID3D12Resource* m_texture = nullptr;	//テクスチャ。
 	D3D12_RESOURCE_DESC m_textureDesc;	//テクスチャ情報
 };

@@ -48,6 +48,21 @@
     <Filter Include="ExEngine\level2D">
       <UniqueIdentifier>{80abc458-e4b9-4836-89c7-3eb842072871}</UniqueIdentifier>
     </Filter>
+    <Filter Include="mycord">
+      <UniqueIdentifier>{113e109f-f5af-4157-9753-65208eb9977d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mycord\engine">
+      <UniqueIdentifier>{e2bebc31-c1e7-4825-a015-5c8230f4ed12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mycord\game">
+      <UniqueIdentifier>{f13d2986-2378-42cd-b116-64cc5a9186d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mycord\engine\その他">
+      <UniqueIdentifier>{d47e1c54-5679-47bd-a8c1-6c0ce3bd3f24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mycord\engine\モデル">
+      <UniqueIdentifier>{f54eb2e4-4825-4d16-b2c3-d10c1fce023e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -208,6 +223,24 @@
     </ClCompile>
     <ClCompile Include="..\..\ExEngine\level2D\MapChip2D.cpp">
       <Filter>ExEngine\level2D</Filter>
+    </ClCompile>
+    <ClCompile Include="model_render.cpp">
+      <Filter>mycord\engine\モデル</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MiniEngine\RenderTarget.cpp">
+      <Filter>MiniEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Bloom.cpp">
+      <Filter>mycord\engine\モデル</Filter>
+    </ClCompile>
+    <ClCompile Include="Gaussianblur.cpp">
+      <Filter>mycord\engine\モデル</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthShadow.cpp">
+      <Filter>mycord\engine\モデル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -393,6 +426,27 @@
     </ClInclude>
     <ClInclude Include="..\..\ExEngine\level2D\MapChip2D.h">
       <Filter>ExEngine\level2D</Filter>
+    </ClInclude>
+    <ClInclude Include="constant.h">
+      <Filter>mycord\engine\その他</Filter>
+    </ClInclude>
+    <ClInclude Include="model_render.h">
+      <Filter>mycord\engine\モデル</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MiniEngine\RenderTarget.h">
+      <Filter>MiniEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Bloom.h">
+      <Filter>mycord\engine\モデル</Filter>
+    </ClInclude>
+    <ClInclude Include="Gaussianblur.h">
+      <Filter>mycord\engine\モデル</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthShadow.h">
+      <Filter>mycord\engine\モデル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

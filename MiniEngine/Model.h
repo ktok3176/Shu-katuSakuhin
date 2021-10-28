@@ -6,11 +6,14 @@
 
 class IShaderResource;
 
-//モデルの上方向
-enum EnModelUpAxis {
-	enModelUpAxisY,		//モデルの上方向がY軸。
-	enModelUpAxisZ,		//モデルの上方向がZ軸。
-};
+namespace modelUpAxis
+{
+	//モデルの上方向
+	enum EnModelUpAxis {
+		enModelUpAxisY,		//モデルの上方向がY軸。
+		enModelUpAxisZ,		//モデルの上方向がZ軸。
+	};
+}
 /// <summary>
 /// モデルの初期化データ
 /// </summary>
@@ -24,7 +27,19 @@ struct ModelInitData {
 	int m_expandConstantBufferSize = 0;								//ユーザー拡張の定数バッファのサイズ。
 	IShaderResource* m_expandShaderResoruceView = nullptr;			//ユーザー拡張のシェーダーリソース。
 	Skeleton* m_skeleton = nullptr;									//スケルトン。
-	EnModelUpAxis m_modelUpAxis = enModelUpAxisZ;					//モデルの上方向。
+	modelUpAxis::EnModelUpAxis m_modelUpAxis = modelUpAxis::enModelUpAxisZ;		//モデルの上方向。
+					//モデルの上方向。
+
+	std::array<DXGI_FORMAT, MAX_RENDERING_TARGET> m_colorBufferFormat = {
+		DXGI_FORMAT_R8G8B8A8_UNORM,
+		DXGI_FORMAT_UNKNOWN,
+		DXGI_FORMAT_UNKNOWN,
+		DXGI_FORMAT_UNKNOWN,
+		DXGI_FORMAT_UNKNOWN,
+		DXGI_FORMAT_UNKNOWN,
+		DXGI_FORMAT_UNKNOWN,
+		DXGI_FORMAT_UNKNOWN,
+	};	//レンダリングするカラーバッファのフォーマット。
 };
 
 /// <summary>
@@ -56,6 +71,8 @@ public:
 	/// ワールド行列を取得。
 	/// </summary>
 	/// <returns></returns>
+	void Draw(RenderContext& renderContext, Camera& camera);
+	void Draw(RenderContext& renderContext, const Matrix& viewMatrix, const Matrix& projMatrix);
 	const Matrix& GetWorldMatrix() const
 	{
 		return m_world;
@@ -96,5 +113,6 @@ private:
 	TkmFile m_tkmFile;													//tkmファイル。
 	Skeleton m_skeleton;												//スケルトン。
 	MeshParts m_meshParts;											//メッシュパーツ。
-	EnModelUpAxis m_modelUpAxis = enModelUpAxisY;		//モデルの上方向。
+	modelUpAxis::EnModelUpAxis m_modelUpAxis = modelUpAxis::enModelUpAxisY;		//モデルの上方向。
+	//モデルの上方向。
 };

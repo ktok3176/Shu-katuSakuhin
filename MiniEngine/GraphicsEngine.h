@@ -199,6 +199,14 @@ public:
 	{
 		return m_fontEngine;
 	}
+	/// <summary>
+/// フレームバッファに描画するときのビューポートを取得。
+/// </summary>
+/// <returns></returns>
+	D3D12_VIEWPORT& GetFrameBufferViewport()
+	{
+		return m_viewport;
+	}
 private:
 	/// <summary>
 	/// D3Dデバイスの作成。

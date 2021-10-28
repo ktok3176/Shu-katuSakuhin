@@ -36,6 +36,16 @@ struct SpriteInitData {
 	int m_expandConstantBufferSize = 0;						//ユーザー拡張の定数バッファのサイズ。
 	IShaderResource* m_expandShaderResoruceView = nullptr;	//ユーザー拡張のシェーダーリソース。
 	AlphaBlendMode m_alphaBlendMode = AlphaBlendMode_None;	//アルファブレンディングモード。
+	std::array<DXGI_FORMAT, MAX_RENDERING_TARGET> m_colorBufferFormat = {
+			DXGI_FORMAT_R8G8B8A8_UNORM,
+			DXGI_FORMAT_UNKNOWN,
+			DXGI_FORMAT_UNKNOWN,
+			DXGI_FORMAT_UNKNOWN,
+			DXGI_FORMAT_UNKNOWN,
+			DXGI_FORMAT_UNKNOWN,
+			DXGI_FORMAT_UNKNOWN,
+			DXGI_FORMAT_UNKNOWN,
+	};	//レンダリングするカラーバッファのフォーマット。
 };
 /// <summary>
 /// スプライトクラス。
