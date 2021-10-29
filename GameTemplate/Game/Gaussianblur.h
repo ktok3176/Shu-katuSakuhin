@@ -42,8 +42,10 @@ private:
 	/// </summary>
 	void UpdateWeightsTable(float blurPower);
 private:
+	int m_mipLv = 1;
+	int m_arraySize = 1;
 	enum { NUM_WEIGHTS = 8 };				//重みの数。
-	float m_weights[NUM_WEIGHTS];			//重みテーブル。			//重みテーブル。
+	float m_weights[NUM_WEIGHTS] = {0,0,0,0,0,0,0,0};			//重みテーブル。			//重みテーブル。
 	Texture* m_originalTexture = nullptr;	//オリジナルテクスチャ。
 	//RenderTarget mainRenderTarget;
 	RenderTarget m_xBlurRenderTarget;		//横ボケ画像を描画するレンダリングターゲット。

@@ -290,11 +290,11 @@
     <ClCompile Include="..\..\MiniEngine\tkFile\TksFile.cpp" />
     <ClCompile Include="..\..\MiniEngine\VertexBuffer.cpp" />
     <ClCompile Include="Bloom.cpp" />
-    <ClCompile Include="DepthShadow.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gaussianblur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="model_render.cpp" />
+    <ClCompile Include="ShadowMap.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -368,10 +368,10 @@
     <ClInclude Include="..\..\MiniEngine\VertexBuffer.h" />
     <ClInclude Include="Bloom.h" />
     <ClInclude Include="constant.h" />
-    <ClInclude Include="DepthShadow.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Gaussianblur.h" />
     <ClInclude Include="model_render.h" />
+    <ClInclude Include="ShadowMap.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
   </ItemGroup>

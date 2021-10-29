@@ -1,79 +1,77 @@
 #pragma once
 #include "Gaussianblur.h"
 
-
-
-
-//このmodel_render.hとmodel_render.cppに存在するマジックナンバーを定数などに変更しておくこと。
-
-
-
-
 struct Light {
 	//ディレクションライト
-	Vector3 dirDirection; //ライトの方向
+	Vector3 dirDirection = { 0.0f, 0.0f, 0.0f }; //ライトの方向
 	//HLSL側の定数バッファのfloat3型の変数は16の倍数のアドレスに配置されるため、
 	//C++側にはパディングを埋めておく。
-	float pad;
-	Vector3 dirColor;
-	float pad1;
+	float pad = 0.0f;
+	Vector3 dirColor = { 0.0f, 0.0f, 0.0f };
+	float pad1 = 0.0f;
 	//ポイントライト
-	Vector3 ptPosition;
-	float pad2;
-	Vector3 ptColor;
-	float ptRange;
+	Vector3 ptPosition = { 0.0f, 0.0f, 0.0f };
+	float pad2 = 0.0f;
+	Vector3 ptColor = { 0.0f, 0.0f, 0.0f };
+	float ptRange = 0.0f;
 	//スポットライト
-	Vector3 spPosition;
-	float pad3;
-	Vector3 spColor;
-	float spRange;
-	Vector3 spDirection;
-	float spAngle;
+	Vector3 spPosition = { 0.0f, 0.0f, 0.0f };
+	float pad3 = 0.0f;
+	Vector3 spColor = { 0.0f, 0.0f, 0.0f };
+	float spRange = 0.0f;
+	Vector3 spDirection = { 0.0f, 0.0f, 0.0f };
+	float spAngle = 0.0f;
 	//構造体に視点の位置を追加する
-	Vector3 eyePos; //視点の位置
-	float pad4;
+	Vector3 eyePos = { 0.0f, 0.0f, 0.0f }; //視点の位置
+	float pad4 = 0.0f;
 
 	//環境光
-	Vector3 ambientLight;   // アンビエントライト
+	Vector3 ambientLight = { 0.0f, 0.0f, 0.0f };   // アンビエントライト
 };
-
-class Gaussianblur;
 
 class ModelRender : public IGameObject
 {
+
 public:
 	ModelRender();
 	~ModelRender();
 	bool Start() override final;
 	void Update() override final;
 	void Render(RenderContext& renderContext) override final;
-	
+
 private: //data menber
-	Model model;	
+	Model m_model;
 	const char* m_tkmFilePath = nullptr; //tkmファイルのファイルパス
-	Light light;
+	Light m_light;
 
 	Vector3 m_position = g_vec3Zero;			//位置
 	Quaternion m_rotation = g_quatIdentity;		//回転
 	Vector3 m_scale = g_vec3One;				//拡大
 
-
 	bool m_finishInit = false; //初期化が終わったか
 
+	Vector3 m_dirPower = { 0.8f,0.8f,0.8f };//ディレクションライトの強さ
+	Vector3 m_dirDirection = { 0.0f, 0.0f, -1.0f };//ディレクションライトの向き
+	
+	Vector3 m_ptPower = { 0.0f, 0.0f, 0.0f };//ポイントライトの強さ
+	Vector3 m_ptPos = { 0.0f, 0.0f, 0.0f };//ポイントライトの位置
+	float m_ptRange = 100.0f;//ポイントライトの影響範囲
+	
+	Vector3 m_spPower = { 0.0f, 0.0f, 0.0f };//スポットライトの強さ
+	Vector3 m_spPos = { 0.0f, 0.0f, 0.0f };//スポットライトの位置
+	Vector3 m_spDirection = { 0.0f, 0.0f, 0.0f };//スポットライトの向き
+	float m_spRange = 300.0f;//スポットライトの影響範囲
+	float m_spAngle = 25.0f;//スポットライトの射出角度
 
+	Vector3 ambientPower = { 0.3f, 0.3f, 0.3f };//環境光の強さ
 public:
 	/**
 	 * @brief 初期化関数
 	 * @param filePath tkmファイルのファイルパス
 	*/
-	//void Init(const char* filePath);
-
-
-	void Init(const char* filePath,
+void Init(const char* filePath,
 		modelUpAxis::EnModelUpAxis modelUpAxis = modelUpAxis::enModelUpAxisZ
 	);
-
-
 
 private:
 	/**
@@ -88,16 +86,8 @@ private:
 
 	void InitAmbientLight(); //環境光
 
-	
-
-	
-
-
 public:
 	
-
-
-
 public: //Get関数
 
 	const Vector3 GetPosition()
@@ -141,18 +131,14 @@ public: //Set関数
 
 	void SetDirectiontColor(const Vector3 v)
 	{
-		light.dirColor = v;
+		m_light.dirColor = v;
 	}
 	void SetPointColor(const Vector3 v)
 	{
-		light.ptColor = v;
+		m_light.ptColor = v;
 	}
 	void SetPointPos(const Vector3 v)
 	{
-		light.ptPosition = v;
+		m_light.ptPosition = v;
 	}
-
-
-
-
 };

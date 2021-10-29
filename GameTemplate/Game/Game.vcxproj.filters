@@ -239,7 +239,7 @@
     <ClCompile Include="Gaussianblur.cpp">
       <Filter>mycord\engine\モデル</Filter>
     </ClCompile>
-    <ClCompile Include="DepthShadow.cpp">
+    <ClCompile Include="ShadowMap.cpp">
       <Filter>mycord\engine\モデル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -445,7 +445,7 @@
     <ClInclude Include="Gaussianblur.h">
       <Filter>mycord\engine\モデル</Filter>
     </ClInclude>
-    <ClInclude Include="DepthShadow.h">
+    <ClInclude Include="ShadowMap.h">
       <Filter>mycord\engine\モデル</Filter>
     </ClInclude>
   </ItemGroup>

@@ -42,30 +42,21 @@ void Gaussianblur::Render(RenderContext& rc, float blurPower)
 
 void Gaussianblur::InitRenderTargets()
 {
-	////メイン
-	//mainRenderTarget.Create(
-	//	1280,
-	//	720,
-	//	1,
-	//	1,
-	//	DXGI_FORMAT_R8G8B8A8_UNORM,
-	//	DXGI_FORMAT_D32_FLOAT
-	//);
 	//横ブラー
 	m_xBlurRenderTarget.Create(
-		m_originalTexture->GetWidth() / 2,
-		m_originalTexture->GetHeight(),
-		1,
-		1,
+		m_originalTexture->GetWidth() / 2,//レンダリングターゲットの幅
+		m_originalTexture->GetHeight(),//レンダリングターゲットの高さ
+		m_mipLv,//ミップマップレベル
+		m_arraySize,//テクスチャ配列のサイズ
 		m_originalTexture->GetFormat(),
 		DXGI_FORMAT_D32_FLOAT
 	);
  //縦ブラー
 	m_yBlurRenderTarget.Create(
-		m_originalTexture->GetWidth() / 2,
-		m_originalTexture->GetHeight() / 2,
-		1,
-		1,
+		m_originalTexture->GetWidth() / 2,//レンダリングターゲットの幅
+		m_originalTexture->GetHeight() / 2,//レンダリングターゲットの高さ
+		m_mipLv,//ミップマップレベル
+		m_arraySize,//テクスチャ配列のサイズ
 		m_originalTexture->GetFormat(),
 		DXGI_FORMAT_D32_FLOAT
 	);
@@ -110,9 +101,11 @@ void Gaussianblur::InitSprites()
 void Gaussianblur::UpdateWeightsTable(float blurPower)
 {
 	float total = 0;
-	for (int i = 0; i < NUM_WEIGHTS; i++) {
-		m_weights[i] = expf(-0.5f * (float)(i * i) / blurPower);
-		total += 2.0f * m_weights[i];
+	for (int distanceFromTexel = 0;
+		distanceFromTexel < NUM_WEIGHTS;
+		distanceFromTexel++) {
+		m_weights[distanceFromTexel] = expf(-0.5f * (float)(distanceFromTexel * distanceFromTexel) / blurPower);
+		total += 2.0f * m_weights[distanceFromTexel];
 
 	}
 	// 規格化

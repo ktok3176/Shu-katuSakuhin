@@ -28,6 +28,8 @@ bool Game::Start()
 	m_modelRender = NewGO<ModelRender>(0);
 	m_modelRender->Init(filePath::TKM_TEAPOT);
 	m_modelRender->SetPosition(potPos);
+	/*m_shadowMap = NewGO<ShadowMap>(0);
+	m_shadowMap->Init(filePath::TKM_TEAPOT, filePath::TKM_BG);*/
 	//m_modelRender->SetPointColor({ 0.0f,0.0f,0.0f });
 	//m_modelRender->SetScale({ 1.0f,1.0f,1.0f });
 
