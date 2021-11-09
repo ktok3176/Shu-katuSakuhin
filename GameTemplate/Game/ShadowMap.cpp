@@ -38,11 +38,7 @@ void ShadowMap::InitShadow(const char* filePath, const char* BGfilePath) {
 
 
 	m_shadowModel.Init(m_shadowModelInitData);
-	m_shadowModel.UpdateWorldMatrix(
-		m_shadowPos,
-		g_quatIdentity,
-		g_vec3One
-	);
+
 	// シャドウレシーバー（影が落とされるモデル）用のシェーダーを指定する
 	m_bgModelInitData.m_fxFilePath = "Assets/shader/sampleShadowReciever.fx";
 
@@ -59,14 +55,16 @@ void ShadowMap::InitShadow(const char* filePath, const char* BGfilePath) {
 
 void ShadowMap::Draw(RenderContext& renderContext) {
 	
-	m_shadowPos.z -= g_pad[0]->GetLStickYF();
+	//m_shadowPos.z -= g_pad[0]->GetLStickYF();
 	m_shadowPos.x -= g_pad[0]->GetLStickXF();
-
-
+	m_scale.x -= g_pad[0]->GetLStickYF()*0.001f;
+	m_scale.y -= g_pad[0]->GetLStickYF() * 0.001f;
+	m_scale.z -= g_pad[0]->GetLStickYF() * 0.001f;
+	m_rotation.SetRotationY(-70.0f);
 	m_shadowModel.UpdateWorldMatrix(
 		m_shadowPos,
-		g_quatIdentity,
-		g_vec3One
+		m_rotation,
+		m_scale
 	);
 
 	// シャドウマップにレンダリング

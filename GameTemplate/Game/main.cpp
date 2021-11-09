@@ -17,7 +17,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	//////////////////////////////////////
 	// ここから初期化を行うコードを記述する。
 	//////////////////////////////////////
-	g_camera3D->SetPosition(0, 100.0f, 350.0f);
+	g_camera3D->SetPosition(0, 150.0f, 800.0f);
+
 
 	RootSignature rs;
 	InitRootSignature(rs);
@@ -26,8 +27,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	GameObjectManager::CreateInstance();
 	PhysicsWorld::CreateInstance();
 	Game* game = NewGO<Game>(0);
-	/*Bloom* bloom = NewGO<Bloom>(0);
-	bloom->Init();*/
+
 	//////////////////////////////////////
 	// 初期化を行うコードを書くのはここまで！！！
 	//////////////////////////////////////

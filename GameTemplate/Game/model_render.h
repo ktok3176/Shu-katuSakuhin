@@ -45,12 +45,12 @@ private: //data menber
 	Light m_light;
 
 	Vector3 m_position = g_vec3Zero;			//位置
-	Quaternion m_rotation = g_quatIdentity;		//回転
+	Quaternion m_rotation = { 0.0f, 0.0f, 0.0f,1.0f };		//回転
 	Vector3 m_scale = g_vec3One;				//拡大
 
 	bool m_finishInit = false; //初期化が終わったか
 
-	Vector3 m_dirPower = { 0.8f,0.8f,0.8f };//ディレクションライトの強さ
+	Vector3 m_dirPower = { 0.9f,0.9f,0.9f };//ディレクションライトの強さ
 	Vector3 m_dirDirection = { 0.0f, 0.0f, -1.0f };//ディレクションライトの向き
 	
 	Vector3 m_ptPower = { 0.0f, 0.0f, 0.0f };//ポイントライトの強さ
@@ -123,6 +123,9 @@ public: //Set関数
 	void SetRotationX(const float f) {
 		m_rotation.SetRotationX(f);
 	}
+	void SetRotationY(const float f) {
+		m_rotation.SetRotationY(f);
+	}
 
 	void SetScale(const Vector3 v)
 	{
@@ -131,14 +134,14 @@ public: //Set関数
 
 	void SetDirectiontColor(const Vector3 v)
 	{
-		m_light.dirColor = v;
+		m_dirPower = v;
 	}
 	void SetPointColor(const Vector3 v)
 	{
-		m_light.ptColor = v;
+		m_ptPower = v;
 	}
 	void SetPointPos(const Vector3 v)
 	{
-		m_light.ptPosition = v;
+		m_ptPos = v;
 	}
 };

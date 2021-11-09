@@ -40,6 +40,7 @@ void ModelRender::Init(const char* filePath,
 
 void ModelRender::InitModel(const char* filePath, modelUpAxis::EnModelUpAxis modelUpAxis)
 {
+
 	//ライトの設定をする。
 	//ディレクションライトを初期化する
 	InitDirectionLight();
@@ -127,10 +128,6 @@ void ModelRender::Render(RenderContext& renderContext)
 {
 	// mainRenderTargetに各種モデルを描画する
 	m_model.Draw(renderContext);
-	
-	m_light.dirColor.x += g_pad[0]->GetLStickXF() * 0.5f;
-	m_light.dirColor.y += g_pad[0]->GetLStickXF() * 0.5f;
-	m_light.dirColor.z += g_pad[0]->GetLStickXF() * 0.5f;
 }
 
 void ModelRender::Update()

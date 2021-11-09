@@ -1,7 +1,8 @@
 #pragma once
 #include "model_render.h"
-//#include "ShadowMap.h"
 #include "constant.h"
+#include "Player.h"
+
 class Game : public IGameObject
 {
 public:
@@ -12,10 +13,8 @@ public:
 
 
 private:
-    ModelRender* m_modelRender = nullptr;	//プレイヤーキャラクターのモデル
-    ModelRender* m_bgmodelRender = nullptr;	//ステージのモデル
-   // ShadowMap* m_shadowMap=  nullptr ;	//影を受けるステージのモデル
-    Vector3 potPos = { 0.0f,50.0f,0.0f};
+    Player* m_player = nullptr;
+
 };
 
 

@@ -11,17 +11,7 @@ namespace con //constant
 	const float FLOAT_ZERO = 0.0f;
 	const int FIRST_OF_THE_ARRAY = 0;
 	const int TIME_RESET_ZERO = 0;
-
-
-	//プレイヤーの番号
-	const enum PlayerNumber
-	{
-		player_1,
-		player_2,
-		player_3,
-		player_4,
-		PlayerNumberMax
-	};
+	
 
 	//モデルの上方向の軸
 	//const enum ModelUpAxis {
@@ -41,6 +31,9 @@ namespace filePath
 	constexpr const char* TKM_TEAPOT = "Assets/modelData/teapot.tkm";
 	constexpr const char* TKM_SAMPLE = "Assets/modelData/sample.tkm";
 	constexpr const char* TKM_BG = "Assets/modelData/bg/bg.tkm";
+	constexpr const char* TKM_VULCAN = "Assets/modelData/Vulcan.tkm";
+	constexpr const char* TKM_BEAM = "Assets/modelData/Beam.tkm";
+	constexpr const char* TKM_BOMB = "Assets/modelData/Bomb.tkm";
 
 	////////////////////////////////////////////////////////////
 	// アニメーション

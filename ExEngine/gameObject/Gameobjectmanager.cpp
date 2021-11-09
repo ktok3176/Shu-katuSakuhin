@@ -10,7 +10,7 @@ GameObjectManager* GameObjectManager::m_instance = nullptr;
 
 GameObjectManager::GameObjectManager()
 {
-	m_shadowMap.Init(filePath::TKM_TEAPOT, filePath::TKM_BG);
+	m_shadowMap.Init(filePath::TKM_CHAEACTER_MODEL, filePath::TKM_BG);
 	bloom.Init();
 	if (m_instance != nullptr) {
 		//ƒCƒ“ƒXƒ^ƒ“ƒX‚ª‚·‚Å‚Éì‚ç‚ê‚Ä‚¢‚éB
@@ -58,8 +58,8 @@ void GameObjectManager::ExecuteRender(RenderContext& renderContext)
 
 
 
-	qAddRot.SetRotationDegX(g_pad[0]->GetLStickYF());
-	g_camera3D->RotateOriginTarget(qAddRot);
+	/*qAddRot.SetRotationDegX(g_pad[0]->GetLStickYF());
+	g_camera3D->RotateOriginTarget(qAddRot);*/
 #if 1
 	m_shadowMap.Draw(renderContext);
 #else
@@ -85,18 +85,14 @@ void GameObjectManager::ExecuteRender(RenderContext& renderContext)
 	for (auto& goList : m_gameObjectListArray) {
 		for (auto& go : goList) {
 			go->RenderWrapper(renderContext);
-			// ‰e‚ðŽó‚¯‚é”wŒi‚ð•`‰æ
 
 		}
 	}
-	m_shadowMap.BGDraw(renderContext);
-	
 	bloom.PreparationDraw(renderContext);
 	renderContext.SetRenderTarget(
 		g_graphicsEngine->GetCurrentFrameBuffuerRTV(),
 		g_graphicsEngine->GetCurrentFrameBuffuerDSV()
 	);
 	bloom.FinalDraw(renderContext);
-
 }
 

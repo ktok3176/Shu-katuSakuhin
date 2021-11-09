@@ -289,11 +289,14 @@
     <ClCompile Include="..\..\MiniEngine\tkFile\TkmFile.cpp" />
     <ClCompile Include="..\..\MiniEngine\tkFile\TksFile.cpp" />
     <ClCompile Include="..\..\MiniEngine\VertexBuffer.cpp" />
+    <ClCompile Include="Beam.cpp" />
     <ClCompile Include="Bloom.cpp" />
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gaussianblur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="model_render.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ShadowMap.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -304,6 +307,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Preview|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="system\system.cpp" />
+    <ClCompile Include="Vulcan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ExEngine\ExEngine.h" />
@@ -366,14 +370,18 @@
     <ClInclude Include="..\..\MiniEngine\tkFile\TkmFile.h" />
     <ClInclude Include="..\..\MiniEngine\tkFile\TksFile.h" />
     <ClInclude Include="..\..\MiniEngine\VertexBuffer.h" />
+    <ClInclude Include="Beam.h" />
     <ClInclude Include="Bloom.h" />
+    <ClInclude Include="Bomb.h" />
     <ClInclude Include="constant.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Gaussianblur.h" />
     <ClInclude Include="model_render.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="ShadowMap.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
+    <ClInclude Include="Vulcan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

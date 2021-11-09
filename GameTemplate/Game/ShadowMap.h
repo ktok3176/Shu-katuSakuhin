@@ -29,8 +29,9 @@ private:
 	Model m_shadowModel;
 	ModelInitData m_bgModelInitData;
 	Model m_bgModel;
-	Quaternion m_qAddRot;
-	Vector3 m_shadowPos = { 0.0f, 50.0f, 0.0f };
+	Quaternion m_rotation;
+	Vector3 m_scale = { 1.0f, 1.0f, 1.0f };
+	Vector3 m_shadowPos = { -20.0f, 50.0f, 20.0f };
 	Vector3 m_cameraSetPos = { 0.0f, 500.0f, 0.0f };
 	Vector3 m_cameraSetTarget = { 0.0f, 0.0f, 0.0f };
 	Vector3 m_cameraSetUp = { 1.0f, 0.0f, 0.0f };
